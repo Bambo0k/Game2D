@@ -1,0 +1,22 @@
+body {
+  display: block;
+  margin: 0px;
+  padding: 0px;
+}
+.row {
+  display: flex;
+  background: green;
+  width: 480px;
+}
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: green;
+  width: 80px;
+  height: 80px;
+}
+.img {
+  height: 100%;
+  width: 100%;
+}
