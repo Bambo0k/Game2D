@@ -6,12 +6,6 @@ const array = [
   [0, 2, 0, 0, 0, 0],
   [3, 0, 0, 0, 0, 3],
 ];
-let x = 0;
-let y = 0;
-const field = 0;
-const hero = 1;
-const tree = 2;
-const rock = 3;
 function render(array) {
   htmlMarkup = "";
   array.forEach((row) => {
