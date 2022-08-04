@@ -1,22 +1,106 @@
-body {
-  display: block;
-  margin: 0px;
-  padding: 0px;
-}
-.row {
-  display: flex;
-  background: green;
-  width: 480px;
-}
-.item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: green;
-  width: 80px;
-  height: 80px;
-}
-.img {
-  height: 100%;
-  width: 100%;
-}
+    body {
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        display: block;
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    .row {
+        display: flex;
+        background: green;
+        width: 360px;
+    }
+    
+    .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: green;
+        width: 60px;
+        height: 60px;
+    }
+    
+    .img {
+        height: 100%;
+        width: 100%;
+    }
+    
+    .controller {
+        display: none;
+        visibility: hidden;
+    }
+    
+    .arrowUp {
+        display: none;
+        visibility: hidden;
+    }
+    
+    .arrowRight {
+        display: none;
+        visibility: hidden;
+    }
+    
+    .arrowDown {
+        display: none;
+        visibility: hidden;
+    }
+    
+    .arrowLeft {
+        display: none;
+        visibility: hidden;
+    }
+    
+    @media (max-width: 700px) {
+        .controller {
+            grid-template-columns: repeat(3, 1fr);
+            visibility: visible;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            width: 180px;
+            height: 120px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .arrowUp {
+            transform: rotate(90deg);
+            visibility: visible;
+            display: block;
+            grid-column: 2;
+            grid-row: 1;
+            height: 60px;
+            width: 60px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .arrowLeft {
+            visibility: visible;
+            display: block;
+            grid-column: 1;
+            grid-row: 2;
+            height: 60px;
+            width: 60px;
+        }
+        .arrowDown {
+            transform: rotate(-90deg);
+            visibility: visible;
+            display: block;
+            height: 60px;
+            grid-column: 2;
+            grid-row: 2;
+            width: 60px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .arrowRight {
+            transform: rotateY(180deg);
+            visibility: visible;
+            display: block;
+            grid-column: 3;
+            grid-row: 2;
+            height: 60px;
+            width: 60px;
+        }
+    }
