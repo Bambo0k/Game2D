@@ -7,7 +7,7 @@ const arrowUp = document.querySelector('.arrowUp');
 if (arrowRight){
   arrowRight.addEventListener('click', () => {
     const countColumns = (<any>window).array[0].length;
-    if ((<any>window).y < countColumns - 1 && (<any>window).array[(<any>window).x][(<any>window).y + 1] === 0 && (<any>window).stamina) {
+    if ((<any>window).y <= countColumns - 1 && (<any>window).array[(<any>window).x][(<any>window).y + 1] === 0 && (<any>window).stamina) {
       (<any>window).array[(<any>window).x][(<any>window).y] = 0;
       (<any>window).array[(<any>window).x][(<any>window).y + 1] = 1;
       (<any>window).app.innerHTML = (<any>window).render((<any>window).array);
@@ -21,7 +21,7 @@ if (arrowRight){
 if(arrowDown) {
   arrowDown.addEventListener('click', () => {
     const countRows = (<any>window).array.length;
-    if ((<any>window).x < countRows - 1 && (<any>window).array[(<any>window).x + 1][(<any>window).y] === 0 && (<any>window).stamina) {
+    if ((<any>window).x <= countRows - 1 && (<any>window).array[(<any>window).x + 1][(<any>window).y] === 0 && (<any>window).stamina) {
       (<any>window).array[(<any>window).x][(<any>window).y] = 0;
       (<any>window).array[(<any>window).x + 1][(<any>window).y] = 1;
       (<any>window).app.innerHTML = (<any>window).render((<any>window).array);
@@ -35,7 +35,7 @@ if(arrowDown) {
 if(arrowLeft){
 arrowLeft.addEventListener('click', () => {
   const countColumns = (<any>window).array.length;
-  if ((<any>window).x < countColumns - 1 && (<any>window).array[(<any>window).x][(<any>window).y - 1] === 0 && (<any>window).stamina) {
+  if ((<any>window).x <= countColumns - 1 && (<any>window).array[(<any>window).x][(<any>window).y - 1] === 0 && (<any>window).stamina) {
     (<any>window).array[(<any>window).x][(<any>window).y] = 0;
     (<any>window).array[(<any>window).x][(<any>window).y - 1] = 1;
     (<any>window).app.innerHTML = (<any>window).render((<any>window).array);
@@ -48,7 +48,7 @@ arrowLeft.addEventListener('click', () => {
 if (arrowUp) {
   arrowUp.addEventListener('click', () => {
   const countRows = (<any>window).array.length;
-  if ((<any>window).x < countRows - 1 && (<any>window).array[(<any>window).x - 1][(<any>window).y] === 0 && (<any>window).stamina) {
+  if ((<any>window).x <= countRows - 1 && (<any>window).array[(<any>window).x - 1][(<any>window).y] === 0 && (<any>window).stamina) {
     (<any>window).array[(<any>window).x][(<any>window).y] = 0;
     (<any>window).array[(<any>window).x - 1][(<any>window).y] = 1;
     (<any>window).app.innerHTML = (<any>window).render((<any>window).array);
