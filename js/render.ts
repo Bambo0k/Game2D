@@ -12,11 +12,11 @@ const array = [
 let x = 0;
 let y = 0;
 
-function render(array) {
-  htmlMarkup = '';
-  array.forEach((row, indexRow) => {
+function render(array: number[][]) {
+  let htmlMarkup = '';
+  array.forEach((row: number[], indexRow) => {
     htmlMarkup += '<div class="row">';
-    row.forEach((item, indexColumn) => {
+    row.forEach((item: number, indexColumn: number) => {
       if (item === 0) {
         htmlMarkup += '<div class="item field"></div>';
       } else if (item === 1) {
@@ -36,56 +36,56 @@ function render(array) {
   });
   return htmlMarkup;
 }
-const app = document.getElementById('app');
+const app: any = document.getElementById('app');
 app.innerHTML = render(array);
-let stamina = true;
+(<any>window).stamina = true;
 
 document.addEventListener('keyup', (event) => {
   if (event.key === 'ArrowRight') {
     const countColumns = array[0].length;
-    if (y < countColumns - 1 && array[x][y + 1] === 0 && stamina) {
+    if (y < countColumns - 1 && array[x][y + 1] === 0 && (<any>window).stamina) {
       array[x][y] = 0;
       array[x][y + 1] = 1;
       app.innerHTML = render(array);
-      stamina = false;
+      (<any>window).stamina = false;
       setTimeout(() => {
-        stamina = true;
+        (<any>window).stamina = true;
       }, 1000);
     }
   }
   if (event.key === 'ArrowDown') {
     const countRows = array.length;
-    if (x < countRows - 1 && array[x + 1][y] === 0 && stamina) {
+    if (x < countRows - 1 && array[x + 1][y] === 0 && (<any>window).stamina) {
       array[x][y] = 0;
       array[x + 1][y] = 1;
       app.innerHTML = render(array);
-      stamina = false;
+      (<any>window).stamina = false;
       setTimeout(() => {
-        stamina = true;
+        (<any>window).stamina = true;
       }, 1000);
     }
   }
   if (event.key === 'ArrowLeft') {
     const countColumns = array.length;
-    if (x < countColumns - 1 && array[x][y - 1] === 0 && stamina) {
+    if (x < countColumns - 1 && array[x][y - 1] === 0 && (<any>window).stamina) {
       array[x][y] = 0;
       array[x][y - 1] = 1;
       app.innerHTML = render(array);
-      stamina = false;
+      (<any>window).stamina = false;
       setTimeout(() => {
-        stamina = true;
+        (<any>window).stamina = true;
       }, 1000);
     }
   }
   if (event.key === 'ArrowUp') {
     const countRows = array.length;
-    if (x < countRows - 1 && array[x - 1][y] === 0 && stamina) {
+    if (x < countRows - 1 && array[x - 1][y] === 0 && (<any>window).stamina) {
       array[x][y] = 0;
       array[x - 1][y] = 1;
       app.innerHTML = render(array);
-      stamina = false;
+      (<any>window).stamina = false;
       setTimeout(() => {
-        stamina = true;
+        (<any>window).stamina = true;
       }, 1000);
     }
   }
