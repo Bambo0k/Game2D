@@ -38,55 +38,51 @@ function render(array: number[][]) {
 }
 const app: any = document.getElementById('app');
 app.innerHTML = render(array);
-(<any>window).stamina = true;
+let stamina = (<any>window).stamina;
+stamina = true;
+const timeout = () => setTimeout(function () {
+  stamina = true;
+}, 1000);
 
 document.addEventListener('keyup', (event) => {
   if (event.key === 'ArrowRight') {
     const countColumns = array[0].length;
-    if (y <= countColumns - 1 && array[x][y + 1] === 0 && (<any>window).stamina) {
+    if (y <= countColumns - 1 && array[x][y + 1] === 0 && stamina) {
       array[x][y] = 0;
       array[x][y + 1] = 1;
       app.innerHTML = render(array);
-      (<any>window).stamina = false;
-      setTimeout(() => {
-        (<any>window).stamina = true;
-      }, 1000);
+      stamina = false;
+      timeout();
     }
   }
   if (event.key === 'ArrowDown') {
     const countRows = array.length;
-    if (x <= countRows - 1 && array[x + 1][y] === 0 && (<any>window).stamina) {
+    if (x <= countRows - 1 && array[x + 1][y] === 0 && stamina) {
       array[x][y] = 0;
       array[x + 1][y] = 1;
       app.innerHTML = render(array);
-      (<any>window).stamina = false;
-      setTimeout(() => {
-        (<any>window).stamina = true;
-      }, 1000);
+      stamina = false;
+      timeout();
     }
   }
   if (event.key === 'ArrowLeft') {
     const countColumns = array.length;
-    if (x <= countColumns - 1 && array[x][y - 1] === 0 && (<any>window).stamina) {
+    if (x <= countColumns - 1 && array[x][y - 1] === 0 && stamina) {
       array[x][y] = 0;
       array[x][y - 1] = 1;
       app.innerHTML = render(array);
-      (<any>window).stamina = false;
-      setTimeout(() => {
-        (<any>window).stamina = true;
-      }, 1000);
+      stamina = false;
+      timeout();
     }
   }
   if (event.key === 'ArrowUp') {
     const countRows = array.length;
-    if (x <= countRows - 1 && array[x - 1][y] === 0 && (<any>window).stamina) {
+    if (x <= countRows - 1 && array[x - 1][y] === 0 && stamina) {
       array[x][y] = 0;
       array[x - 1][y] = 1;
       app.innerHTML = render(array);
-      (<any>window).stamina = false;
-      setTimeout(() => {
-        (<any>window).stamina = true;
-      }, 1000);
+      stamina = false;
+      timeout();
     }
   }
 });
